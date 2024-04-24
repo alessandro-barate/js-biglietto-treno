@@ -25,8 +25,10 @@ ELSE
 prezzo pieno
 8 - Output con 2 decimali.   */
 
+let currentPriceId = document.getElementById("price");
+let currentPrice = currentPriceId.innerHTML;
+
 const ticketPriceKm = 0.21;
-//console.log(ticketPriceKm);
 
 const userKm = Number(prompt("Quanti chilometri vuoi fare?"));
 console.log("Chilometri da percorrere:", userKm);
@@ -62,3 +64,5 @@ console.log("Percentuale di sconto:", discountPercentage, "per cento");
 let finalPrice =
   totalPriceTicket - (totalPriceTicket / 100) * discountPercentage;
 console.log("Il prezzo finale è di:", finalPrice.toFixed(2), "euro");
+
+currentPriceId.innerHTML = finalPrice;
