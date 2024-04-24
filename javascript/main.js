@@ -29,14 +29,35 @@ const ticketPriceKm = 0.21;
 //console.log(ticketPriceKm);
 
 const userKm = Number(prompt("Quanti chilometri vuoi fare?"));
-console.log("Chilometri da percorrere: ", userKm);
+console.log("Chilometri da percorrere:", userKm);
 
 if (isNaN(userKm)) {
-  console.log("Qualcosa è andato storto. Ridigita il numero");
-  Number(
-    prompt("Qualcosa è andato storto. Ridigita i chilometri che vuoi fare")
-  );
+  console.log("ATTENZIONE! Quello inserito non è un numero");
 }
 
 const userAge = Number(prompt("Quanti anni hai?"));
-console.log("Eta' del viaggiatore: ", userAge);
+console.log("Eta' del viaggiatore:", userAge);
+
+if (isNaN(userAge)) {
+  console.log("ATTENZIONE! Quello inserito non è un numero");
+}
+
+let totalPriceTicket = userKm * ticketPriceKm;
+console.log("Prezzo totale:", totalPriceTicket, "euro");
+
+let discount = {};
+
+if (userAge < 18) {
+  discount = 20;
+} else if (userAge > 65) {
+  discount = 40;
+} else {
+  discount = 0;
+}
+
+let discountPercentage = (100 / 100) * discount;
+console.log("Percentuale di sconto:", discountPercentage, "per cento");
+
+let finalPrice =
+  totalPriceTicket - (totalPriceTicket / 100) * discountPercentage;
+console.log("Il prezzo finale è di:", finalPrice, "euro");
