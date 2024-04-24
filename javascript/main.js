@@ -32,6 +32,7 @@ const userKm = Number(prompt("Quanti chilometri vuoi fare?"));
 console.log("Chilometri da percorrere:", userKm);
 
 if (isNaN(userKm)) {
+  alert("ATTENZIONE! Quello inserito non è un numero");
   console.log("ATTENZIONE! Quello inserito non è un numero");
 }
 
@@ -60,4 +61,4 @@ console.log("Percentuale di sconto:", discountPercentage, "per cento");
 
 let finalPrice =
   totalPriceTicket - (totalPriceTicket / 100) * discountPercentage;
-console.log("Il prezzo finale è di:", finalPrice, "euro");
+console.log("Il prezzo finale è di:", finalPrice.toFixed(2), "euro");
