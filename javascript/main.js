@@ -11,6 +11,9 @@ Questo richiederà un minimo di ricerca.
 1 - Definisco la variabile di 0,21 euro/km -ok
 2 - Definisco una variabile e con prompt chiedo all'utente quanti chilometri vuole fare -ok
 3 - Definisco una variabile e chiedo all'utente l'età -ok
+
+N.B. il prompt restituisce una stringa --> conversione input in numeri
+
 4 - Definisco una variabile con prezzo totale (0,21 \* km) 
 5 - Definisco variabile dello sconto del 20%
 6 - Definisco variabile dello sconto del 40%
@@ -25,7 +28,15 @@ prezzo pieno
 const ticketPriceKm = 0.21;
 //console.log(ticketPriceKm);
 
-const userKm = prompt("Quanti chilometri vuoi fare?");
-console.log(userKm);
-const userAge = prompt("Quanti anni hai?");
-console.log(userAge);
+const userKm = Number(prompt("Quanti chilometri vuoi fare?"));
+console.log("Chilometri da percorrere: ", userKm);
+
+if (isNaN(userKm)) {
+  console.log("Qualcosa è andato storto. Ridigita il numero");
+  Number(
+    prompt("Qualcosa è andato storto. Ridigita i chilometri che vuoi fare")
+  );
+}
+
+const userAge = Number(prompt("Quanti anni hai?"));
+console.log("Eta' del viaggiatore: ", userAge);
