@@ -62,3 +62,5 @@ console.log("Il prezzo finale è di:", finalPrice.toFixed(2), "euro");
 
 // Mostro nell'HTML il prezzo del biglietto
 currentPriceId.innerHTML = finalPrice;
+
+// TODO: chiedere come mostrare nell'html solo 2 decimali.
