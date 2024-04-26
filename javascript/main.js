@@ -1,68 +1,64 @@
 "use strict";
 
-/* Il programma dovrà chiedere all'utente il numero di chilometri che vuole percorrere e l'età del passeggero.
-Sulla base di queste informazioni dovrà calcolare il prezzo totale del viaggio, secondo queste regole:
-il prezzo del biglietto è definito in base ai km (0.21 € al km)
-va applicato uno sconto del 20% per i minorenni
-va applicato uno sconto del 40% per gli over 65.
-L'output del prezzo finale va messo fuori in forma umana (con massimo due decimali, per indicare centesimi sul prezzo).
-Questo richiederà un minimo di ricerca.
-
-1 - Definisco la variabile di 0,21 euro/km -ok
-2 - Definisco una variabile e con prompt chiedo all'utente quanti chilometri vuole fare -ok
-3 - Definisco una variabile e chiedo all'utente l'età -ok
-
-N.B. il prompt restituisce una stringa --> conversione input in numeri
-
-4 - Definisco una variabile con prezzo totale (0,21 \* km) 
-5 - Definisco variabile dello sconto del 20%
-6 - Definisco variabile dello sconto del 40%
-7 - IF età < 18
-sconto 20%
-ELSE IF età > 65
-sconto 40%
-ELSE
-prezzo pieno
-8 - Output con 2 decimali.   */
-
+// Prendo dall'HTML l' ID desiderato
 let currentPriceId = document.getElementById("price");
 let currentPrice = currentPriceId.innerHTML;
 
+// Definisco la costante di prezzo al km
 const ticketPriceKm = 0.21;
 
+// Definisco la costante dei km chiedendola all'utente, la trasformo in numero e la stampo in console
 const userKm = Number(prompt("Quanti chilometri vuoi fare?"));
 console.log("Chilometri da percorrere:", userKm);
 
+/* Istruzione condizionale.
+  Ad oggi non ho modo di risolvere il loop che si presenta (se continua ad esserci un input non valido),
+  quindi semplicemente appare un alert ed il programma continua lo stesso, dando però nel caso un risultato
+  non valido */
 if (isNaN(userKm)) {
   alert("ATTENZIONE! Quello inserito non è un numero");
   console.log("ATTENZIONE! Quello inserito non è un numero");
 }
 
+// Definisco la costante dell'età chiedendola all'utente, la trasformo in numero e la stampo in console
 const userAge = Number(prompt("Quanti anni hai?"));
 console.log("Eta' del viaggiatore:", userAge);
 
+/* Istruzione condizionale.
+  Ad oggi non ho modo di risolvere il loop che si presenta (se continua ad esserci un input non valido),
+  quindi semplicemente appare un alert ed il programma continua lo stesso, dando però nel caso un risultato
+  non valido */
 if (isNaN(userAge)) {
   console.log("ATTENZIONE! Quello inserito non è un numero");
 }
 
+// Definisco la variabile del prezzo totale del biglietto in base ai km e lo stampo in console
 let totalPriceTicket = userKm * ticketPriceKm;
 console.log("Prezzo totale:", totalPriceTicket, "euro");
 
+// Dichiaro la variabile dello sconto applicabile
 let discount = {};
 
+/* Istruzione condizionale
+  Se l'età inserita dall'utente è inferiore ai 18 anni lo sconto è di 20, se superiore ai 65 anni. Negli altri
+  casi lo sconto è nullo */
 if (userAge < 18) {
   discount = 20;
-} else if (userAge > 65) {
+} else if (userAge >= 65) {
   discount = 40;
 } else {
   discount = 0;
 }
 
+// Definisco la percentuale di sconto e la stampo in console
 let discountPercentage = (100 / 100) * discount;
 console.log("Percentuale di sconto:", discountPercentage, "per cento");
 
+/* Definisco il prezzo finale del biglietto (considerando lo sconto) e lo stampo in console con solo 2 cifre
+  decimali */
 let finalPrice =
   totalPriceTicket - (totalPriceTicket / 100) * discountPercentage;
 console.log("Il prezzo finale è di:", finalPrice.toFixed(2), "euro");
 
+// Mostro nell'HTML il prezzo del biglietto
 currentPriceId.innerHTML = finalPrice;
