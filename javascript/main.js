@@ -39,12 +39,16 @@ console.log("Prezzo totale:", totalPriceTicket, "euro");
 // Dichiaro la variabile dello sconto applicabile
 let discount = {};
 
+//Dichiaro le variabili per le età sotto ai 18 anni e sopra i 65 anni
+const ageUnder = 18;
+const ageOver = 65;
+
 /* Istruzione condizionale
   Se l'età inserita dall'utente è inferiore ai 18 anni lo sconto è di 20, se superiore ai 65 anni. Negli altri
   casi lo sconto è nullo */
-if (userAge < 18) {
+if (userAge < ageUnder) {
   discount = 20;
-} else if (userAge >= 65) {
+} else if (userAge >= ageOver) {
   discount = 40;
 } else {
   discount = 0;
