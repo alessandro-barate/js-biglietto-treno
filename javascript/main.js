@@ -44,8 +44,8 @@ const ageUnder = 18;
 const ageOver = 65;
 
 /* Istruzione condizionale
-  Se l'età inserita dall'utente è inferiore ai 18 anni lo sconto è di 20, se superiore ai 65 anni. Negli altri
-  casi lo sconto è nullo */
+  Se l'età inserita dall'utente è inferiore ai 18 anni lo sconto è di 20, se superiore ai 65 anni è di 40. Negli
+   altri casi lo sconto è nullo */
 if (userAge < ageUnder) {
   discount = 20;
 } else if (userAge >= ageOver) {
